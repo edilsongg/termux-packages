@@ -23,17 +23,21 @@ jobs:
           - arm
           - i686
           - x86_64
-    if: github.repository == 'termux/termux-packages'
     steps:
       - name: Git clone
         uses: actions/checkout@v4
+      - name: Check script existence and list files
+        run: |
+          ls ./scripts/
+          ls ./*.zip
       - name: Create bootstrap archive
         run: ./scripts/generate-bootstraps.sh --architectures ${{ matrix.arch }}
       - name: Store artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         with:
-          name: bootstrap-archives-${{ matrix.arch }}-${{ github.sha }}
+          name: bootstrap-archives-${{ github.sha }}
           path: "*.zip"
+
   publish:
     permissions:
       contents: write # for git push
@@ -45,9 +49,9 @@ jobs:
         with:
           fetch-depth: 0
       - name: Fetch bootstrap archives
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v3
         with:
-          merge-multiple: true
+          name: bootstrap-archives-${{ github.sha }}
           path: ./
       - name: Create new tag
         id: get_tag
@@ -64,7 +68,7 @@ jobs:
           git push --tags
           echo "tag_name=$new_tag" >> $GITHUB_OUTPUT
       - name: Publish bootstrap zips to GitHub release
-        uses: termux/upload-release-action@v4.2.0
+        uses: termux/upload-release-action@v4.1.0
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: "*.zip"
