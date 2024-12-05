@@ -23,13 +23,10 @@ jobs:
           - arm
           - i686
           - x86_64
+    if: github.repository == 'termux/termux-packages'
     steps:
       - name: Git clone
         uses: actions/checkout@v4
-      - name: Check script existence and list files
-        run: |
-          ls ./scripts/
-          ls ./*.zip
       - name: Create bootstrap archive
         run: ./scripts/generate-bootstraps.sh --architectures ${{ matrix.arch }}
       - name: Store artifacts
@@ -37,7 +34,6 @@ jobs:
         with:
           name: bootstrap-archives-${{ github.sha }}
           path: "*.zip"
-
   publish:
     permissions:
       contents: write # for git push
