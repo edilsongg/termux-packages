@@ -32,17 +32,17 @@ Developer's wiki is available at https://github.com/termux/termux-packages/wiki.
   dependencies, unprefixed hardcoded FHS paths, crashes, etc.
 
   If you can't submit a pull request with patches fixing the problem, you can
-  open new [issue](https://github.com/termux/termux-packages/issues/new/choose).
+  open new [issue](https://github.com/edilsongg/termux-packages/issues/new/choose).
 
 - **Fixing known bugs**
 
-  Take a look at https://github.com/termux/termux-packages/issues. There many
+  Take a look at https://github.com/edilsongg/termux-packages/issues. There many
   issue tickets having tag `bug report` or `help wanted`. They all are waiting
   to be resolved.
 
 - **Submitting new packages**
 
-  There are lots of unresolved [package requests](https://github.com/termux/termux-packages/issues?q=is%3Aissue+is%3Aopen+label%3A%22package+request%22).
+  There are lots of unresolved [package requests](https://github.com/edilsongg/termux-packages/issues?q=is%3Aissue+is%3Aopen+label%3A%22package+request%22).
   Pay attention to tickets having tag `help wanted`.
 
 - **Keeping existing packages up-to-date**
@@ -60,14 +60,14 @@ Developer's wiki is available at https://github.com/termux/termux-packages/wiki.
 
 - **Donate**
 
-  See https://github.com/termux/termux-packages/wiki/Donate for details.
+  See https://github.com/edilsongg/termux-packages/wiki/Donate for details.
 
 ## Requesting new package
 
 If you are looking for specific package and didn't find it included in our
 repositories, you can request it.
 
-Open a new [issue](https://github.com/termux/termux-packages/issues/new/choose)
+Open a new [issue](https://github.com/edilsongg/termux-packages/issues/new/choose)
 filling the `package request` template. You will need to provide at least
 package description and its home page and URL to source repository. Remember
 that your request will not be processed immediately.
@@ -160,7 +160,7 @@ but that DOES NOT mean they will do all work instead of you.
 - Experience with Linux distribution like Debian (preferred), Arch, Fedora, etc.
 - Experience with compiling software from source.
 - Good shell scripting skills.
-- You have read https://github.com/termux/termux-packages/wiki.
+- You have read https://github.com/edilsongg/termux-packages/wiki.
 
 If you never used Linux distribution or Termux was your first experience with
 Linux environment, we strongly recommending to NOT send pull requests since
@@ -263,7 +263,7 @@ request with new package. Pay attention to things listed below.
    equivalents. Termux installation prefix is
 
    ```
-   /data/data/com.termux/files/usr
+   /data/data/com.yato.fl_ide/files/usr
    ```
 
    and can be considered as virtual rootfs.
@@ -271,7 +271,7 @@ request with new package. Pay attention to things listed below.
    Home directory is stored outside of prefix:
 
    ```
-   /data/data/com.termux/files/home
+   /data/data/com.yato.fl_ide/files/home
    ```
 
    Don't hardcode home and prefix, use shortcuts `@TERMUX_HOME@` and
@@ -500,7 +500,7 @@ separated by commas.
 `TERMUX_PKG_SRCURL` should contain URL only for the official source bundle.
 Use of forks is allowed only under a good reason.
 
-More about `build.sh` variables you can read on [developer's wiki](https://github.com/termux/termux-packages/wiki/Creating-new-package#table-of-available-package-control-fields).
+More about `build.sh` variables you can read on [developer's wiki](https://github.com/edilsongg/termux-packages/wiki/Creating-new-package#table-of-available-package-control-fields).
 
 ### Creating patch files
 
